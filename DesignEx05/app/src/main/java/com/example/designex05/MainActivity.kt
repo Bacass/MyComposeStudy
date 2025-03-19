@@ -133,8 +133,7 @@ fun MainScreen() {
                         onValueChange = setName,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(40.dp)
-                            .padding(vertical = 2.dp),
+                            .height(40.dp),
                         shape = RoundedCornerShape(20.dp),
                         colors = OutlinedTextFieldDefaults.colors(
                             focusedBorderColor = Color.Black,
@@ -186,8 +185,7 @@ fun MainScreen() {
                         onValueChange = setMail,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(40.dp)
-                            .padding(vertical = 2.dp),
+                            .height(40.dp),
                         shape = RoundedCornerShape(20.dp),
                         colors = OutlinedTextFieldDefaults.colors(
                             focusedBorderColor = Color.Black,
@@ -239,8 +237,7 @@ fun MainScreen() {
                         onValueChange = setPassword,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(40.dp)
-                            .padding(vertical = 2.dp),
+                            .height(40.dp),
                         shape = RoundedCornerShape(20.dp),
                         colors = OutlinedTextFieldDefaults.colors(
                             focusedBorderColor = Color.Black,
