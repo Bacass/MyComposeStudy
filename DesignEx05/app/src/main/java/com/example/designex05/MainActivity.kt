@@ -102,6 +102,7 @@ fun MainScreen() {
                         .fillMaxWidth()
                         .padding(top = 30.dp, bottom = 30.dp),
                     fontSize = 30.sp,
+                    color = Color.Black,
                     textAlign = TextAlign.Center
                 )
 
