@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
@@ -44,6 +45,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.designex05.ui.theme.DesignEx05Theme
+import androidx.compose.foundation.border
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -129,32 +131,42 @@ fun MainScreen() {
 
                     Spacer(Modifier.width(16.dp))
 
-                    OutlinedTextField(
+                    BasicTextField(
                         value = name,
                         onValueChange = setName,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(40.dp),
-                        shape = RoundedCornerShape(20.dp),
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = Color.Black,
-                            unfocusedBorderColor = Color.Black,
-                        ),
+                            .height(40.dp)
+                            .border(
+                                width = 1.dp,
+                                color = Color.Black,
+                                shape = RoundedCornerShape(20.dp)
+                            ),
                         textStyle = TextStyle(
                             color = Color.Black,
                             fontSize = 14.sp,
                             textAlign = TextAlign.Center
                         ),
-                        placeholder = {
-                            Text(
-                                "Username",
-                                fontSize = 14.sp,
-                                color = Color.Black,
-                                textAlign = TextAlign.Center,
-                                modifier = Modifier.fillMaxWidth()
-                            )
-                        },
-                        singleLine = true
+                        singleLine = true,
+                        decorationBox = { innerTextField ->
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(horizontal = 16.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                if (name.isEmpty()) {
+                                    Text(
+                                        "Username",
+                                        fontSize = 14.sp,
+                                        color = Color.Black,
+                                        textAlign = TextAlign.Center,
+                                        modifier = Modifier.fillMaxWidth()
+                                    )
+                                }
+                                innerTextField()
+                            }
+                        }
                     )
                 }
 
@@ -181,32 +193,42 @@ fun MainScreen() {
 
                     Spacer(Modifier.width(16.dp))
 
-                    OutlinedTextField(
+                    BasicTextField(
                         value = mail,
                         onValueChange = setMail,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(40.dp),
-                        shape = RoundedCornerShape(20.dp),
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = Color.Black,
-                            unfocusedBorderColor = Color.Black,
-                        ),
+                            .height(40.dp)
+                            .border(
+                                width = 1.dp,
+                                color = Color.Black,
+                                shape = RoundedCornerShape(20.dp)
+                            ),
                         textStyle = TextStyle(
                             color = Color.Black,
                             fontSize = 14.sp,
                             textAlign = TextAlign.Center
                         ),
-                        placeholder = {
-                            Text(
-                                "Email",
-                                fontSize = 14.sp,
-                                color = Color.Black,
-                                textAlign = TextAlign.Center,
-                                modifier = Modifier.fillMaxWidth()
-                            )
-                        },
-                        singleLine = true
+                        singleLine = true,
+                        decorationBox = { innerTextField ->
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(horizontal = 16.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                if (mail.isEmpty()) {
+                                    Text(
+                                        "Email",
+                                        fontSize = 14.sp,
+                                        color = Color.Black,
+                                        textAlign = TextAlign.Center,
+                                        modifier = Modifier.fillMaxWidth()
+                                    )
+                                }
+                                innerTextField()
+                            }
+                        }
                     )
                 }
 
@@ -233,34 +255,44 @@ fun MainScreen() {
 
                     Spacer(Modifier.width(16.dp))
 
-                    OutlinedTextField(
+                    BasicTextField(
                         value = password,
                         onValueChange = setPassword,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(40.dp),
-                        shape = RoundedCornerShape(20.dp),
-                        colors = OutlinedTextFieldDefaults.colors(
-                            focusedBorderColor = Color.Black,
-                            unfocusedBorderColor = Color.Black,
-                        ),
+                            .height(40.dp)
+                            .border(
+                                width = 1.dp,
+                                color = Color.Black,
+                                shape = RoundedCornerShape(20.dp)
+                            ),
                         textStyle = TextStyle(
                             color = Color.Black,
                             fontSize = 14.sp,
                             textAlign = TextAlign.Center
                         ),
-                        placeholder = {
-                            Text(
-                                "Password",
-                                fontSize = 14.sp,
-                                color = Color.Black,
-                                textAlign = TextAlign.Center,
-                                modifier = Modifier.fillMaxWidth()
-                            )
-                        },
                         singleLine = true,
                         visualTransformation = PasswordVisualTransformation(),
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                        decorationBox = { innerTextField ->
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(horizontal = 16.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                if (password.isEmpty()) {
+                                    Text(
+                                        "Password",
+                                        fontSize = 14.sp,
+                                        color = Color.Black,
+                                        textAlign = TextAlign.Center,
+                                        modifier = Modifier.fillMaxWidth()
+                                    )
+                                }
+                                innerTextField()
+                            }
+                        }
                     )
                 }
 
